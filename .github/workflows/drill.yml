@@ -1,0 +1,16 @@
+name: Drill
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  stuck-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simulate stuck build (sleep)
+        run: |
+          echo "Drill workflow started: $(date -u)
+          This job sleeps for 600 seconds (10 minutes) to simulate a wedged overnight CI build."
+          sleep 600
+          echo "Sleep complete."
